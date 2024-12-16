@@ -1,0 +1,167 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <button (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Canvas 1.0.0</span>
+    
+    <button routerLink="Dashboard" mat-button style="margin-left: 50px;"><mat-icon>dashboard</mat-icon>Dashboard</button>
+    <button [matMenuTriggerFor]="frv112" mat-button><mat-icon>local_police</mat-icon>FRV112</button>
+    <mat-menu #frv112="matMenu">
+        <button [matMenuTriggerFor]="MDT" mat-menu-item>MDT</button>
+        <button [matMenuTriggerFor]="NVR" mat-menu-item>NVR</button>
+    </mat-menu>
+
+    <mat-menu #MDT="matMenu">
+      <button mat-menu-item routerLink="MDTSTATUS">MDT Status</button>
+        <button mat-menu-item >MDT Daily Reports</button>
+       
+        <button mat-menu-item >Regular MDT OFFline</button>
+    </mat-menu>
+    <mat-menu #NVR="matMenu">
+        <button mat-menu-item>NVR Status</button>
+        <button mat-menu-item>NVR Daily Reports</button>
+        <button mat-menu-item>NVR Upload logs</button>
+    </mat-menu>
+
+
+    <mat-menu #variant="matMenu">
+        <button mat-menu-item>Color</button>
+        <button mat-menu-item>Size</button>
+    </mat-menu>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>User</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>manage_accounts</mat-icon>
+          <span>setting</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+</mat-toolbar>
+<mat-drawer-container autosize="">
+    <mat-drawer #drawer opened="true" mode="side" position="start" style="min-width: 200px;">
+    <mat-nav-list>
+
+        <!--  analytics menu  -->
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+              <mat-expansion-panel-header>
+                <mat-panel-title>       
+                    <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+              </mat-panel-title>
+                
+              </mat-expansion-panel-header>
+                <button mat-button><mat-icon>summarize</mat-icon>assignment</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon>VNA</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> VTR</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> VB</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> Misscall</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> Pilotapp</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> Call id wise data</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> Call id With Lat Long data</button>
+             <br>
+           <button mat-button><mat-icon>summarize</mat-icon> VTR With Last Case</button>
+           <br>
+           <button mat-button><mat-icon>summarize</mat-icon> Nearest Vehicle</button>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <!--  analytics menu  -->
+
+
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+              <mat-expansion-panel-header>
+                <mat-panel-title>       
+               <button mat-button><mat-icon>local_police</mat-icon> FRV 112</button>
+              </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                  <mat-expansion-panel-header style="padding: 0px;">    
+                   <button mat-button><mat-icon>tablet</mat-icon>MDT</button>
+                  </mat-expansion-panel-header>
+                 
+                      <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+                  <br>
+              
+                      <button mat-button><mat-icon>help</mat-icon> Help</button>
+                      <br>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                  <mat-expansion-panel-header style="padding: 0px;">    
+                   <button mat-button><mat-icon>camera</mat-icon>NVR</button>
+                  </mat-expansion-panel-header>
+                  <mat-list-item>
+                      <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+                  </mat-list-item>
+                  <mat-list-item>
+                      <button mat-button><mat-icon>help</mat-icon> Help</button>
+                  </mat-list-item>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+      <!--  IT menu  -->
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>       
+                <button mat-button><mat-icon>admin_panel_settings</mat-icon> Admin</button>
+          </mat-panel-title>
+            
+          </mat-expansion-panel-header>
+            <button mat-button><mat-icon>summarize</mat-icon>assignment</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon>VNA</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> VTR</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> VB</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> Misscall</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> Pilotapp</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> Call id wise data</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> Call id With Lat Long data</button>
+         <br>
+       <button mat-button><mat-icon>summarize</mat-icon> VTR With Last Case</button>
+       <br>
+       <button mat-button><mat-icon>summarize</mat-icon> Nearest Vehicle</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+        <mat-list> 
+</mat-list>
+    </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content> 
+        <div style="min-height: 93vh;">
+
+          <div style="padding: 20px;">  <router-outlet></router-outlet></div>
+            </div>
+    </mat-drawer-content>
+    </mat-drawer-container>
+   
+   
+      

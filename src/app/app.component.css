@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+    
+  }
+
+  .bg-color{
+    background-color: rgb(18, 133, 241);
+    color: aliceblue;
+  }
+  
+
+  ::ng-deep .mat-expansion-panel {
+    box-shadow: none !important;
+  }
+  ::ng-deep .mat-expansion-panel-header {
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+  }
+  
