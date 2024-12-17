@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+.pflex {
+  flex: 1 1 auto; /* Aligns items to the left */
+}
+
+.container{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.item-last{
+  justify-content: end;
+}
