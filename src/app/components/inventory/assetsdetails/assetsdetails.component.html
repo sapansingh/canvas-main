@@ -1,49 +1,98 @@
+<mat-card appearance="outlined">
+  <mat-card-content>
 
-<div class="container">
-  <mat-form-field appearance="outline">
-    <mat-label>Search</mat-label>
-    <input matInput placeholder="Placeholder" (keyup)="applyFilter($event)">
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
-  <span class="pflex"></span>
-  <mat-form-field appearance="outline">
-    <mat-label>Start</mat-label>
-    <input matInput type="date" placeholder="Placeholder" (keyup)="applyFilter($event)">
-  </mat-form-field>
-  <mat-form-field style="margin-left: 10px;" appearance="outline">
-    <mat-label>End</mat-label>
-    <input matInput type="date" placeholder="Placeholder" (keyup)="applyFilter($event)">
-  </mat-form-field>
+    <div class="container">
 
-  <button mat-flat-button style="margin-left: 20px; margin-bottom: 30px;background-color: blue;color: white;">Submit</button>
- </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Placeholder" (keyup)="applyFilter($event)">
+        <mat-icon matSuffix>search</mat-icon>
+    
+    
+      </mat-form-field>
+      <span class="pflex"></span>
+      <mat-form-field appearance="outline">
+        <mat-label>Start</mat-label>
+        <input matInput type="date" placeholder="Placeholder" (keyup)="applyFilter($event)">
+      </mat-form-field>
+      <mat-form-field style="margin-left: 10px;" appearance="outline">
+        <mat-label>End</mat-label>
+        <input matInput type="date" placeholder="Placeholder" (keyup)="applyFilter($event)">
+      </mat-form-field>
+      <button mat-flat-button style="margin-left: 20px; margin-bottom: 30px;background-color: blue;color: white;">Submit</button>
+     </div>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-  
       <!-- Position Column -->
-      <ng-container matColumnDef="position">
+      <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <ng-container matColumnDef="deviceType">
+        <th mat-header-cell *matHeaderCellDef> deviceType </th>
+        <td mat-cell *matCellDef="let element"> {{element.deviceType}} </td>
       </ng-container>
   
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="brandName">
+          <th mat-header-cell *matHeaderCellDef> brandName </th>
+          <td mat-cell *matCellDef="let element"> {{element.brandName}} </td>
+        </ng-container>
   
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+       <!-- Name Column -->
+       <ng-container matColumnDef="modelName">
+        <th mat-header-cell *matHeaderCellDef> modelName </th>
+        <td mat-cell *matCellDef="let element"> {{element.modelName}} </td>
       </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="invoiceno">
+          <th mat-header-cell *matHeaderCellDef> invoiceno </th>
+          <td mat-cell *matCellDef="let element"> {{element.invoiceno}} </td>
+        </ng-container>
   
+
+        <ng-container matColumnDef="serialNumber">
+          <th mat-header-cell *matHeaderCellDef> serialNumber </th>
+          <td mat-cell *matCellDef="let element"> {{element.serialNumber}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="assetsreciveddate">
+          <th mat-header-cell *matHeaderCellDef> assetsreciveddate </th>
+          <td mat-cell *matCellDef="let element"> {{element.assetsreciveddate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="specification">
+          <th mat-header-cell *matHeaderCellDef> specification </th>
+          <td mat-cell *matCellDef="let element"> {{element.specification}} </td>
+        </ng-container>
+        <ng-container matColumnDef="warrantydate">
+          <th mat-header-cell *matHeaderCellDef> warrantydate </th>
+          <td mat-cell *matCellDef="let element"> {{element.warrantydate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="imeino1">
+          <th mat-header-cell *matHeaderCellDef> imeino1 </th>
+          <td mat-cell *matCellDef="let element"> {{element.imeino1}} </td>
+        </ng-container>
+        <ng-container matColumnDef="imeino2">
+          <th mat-header-cell *matHeaderCellDef> imeino2 </th>
+          <td mat-cell *matCellDef="let element"> {{element.imeino2}} </td>
+        </ng-container>
+        <ng-container matColumnDef="assetTag">
+          <th mat-header-cell *matHeaderCellDef> assetTag </th>
+          <td mat-cell *matCellDef="let element"> {{element.assetTag}} </td>
+        </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

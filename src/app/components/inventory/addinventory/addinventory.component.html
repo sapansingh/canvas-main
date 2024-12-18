@@ -1,36 +1,63 @@
 <mat-card appearance="outlined">
+  <mat-card-content>
+    <h2>ADD Device Details</h2>
+    </mat-card-content>
+    </mat-card>
+<mat-card appearance="outlined">
     <mat-card-content>
 
         <mat-form-field class="formfield" appearance="outline">
             <mat-label>Device Type</mat-label>
-            <mat-select>
-              <mat-option value="option">Option</mat-option>
+            <mat-select (valueChange)="onBrand($event)" [(ngModel)]="formdata.deviceType">
+              <mat-option *ngFor="let item of dtype" value={{item}}>{{item}}</mat-option>
             </mat-select>
         </mat-form-field>
-          <mat-form-field class="formfield" appearance="outline">
-            <mat-label>Device Type</mat-label>
-            <input matInput placeholder="Placeholder">
-        
-          </mat-form-field>
 
+        <mat-form-field class="formfield" appearance="outline">
+          <mat-label>Brand Type</mat-label>
+          <mat-select  [(ngModel)]="formdata.brandName">
+            <mat-option *ngFor="let item of brand" value={{item}}>{{item}}</mat-option>
+          </mat-select>
 
+      </mat-form-field>
           <mat-form-field class="formfield" appearance="outline">
-            <mat-label>Device Type</mat-label>
-            <input matInput placeholder="Placeholder">
-        
-          </mat-form-field>
-
-          <mat-form-field class="formfield" appearance="outline">
-            <mat-label>Device Type</mat-label>
-            <input matInput placeholder="Placeholder">
-        
+            <mat-label>Model Name</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="formdata.modelName">
           </mat-form-field>
           <mat-form-field class="formfield" appearance="outline">
-            <mat-label>Device Type</mat-label>
-            <input matInput placeholder="Placeholder">
-        
+            <mat-label>Invoice No</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="formdata.invoiceno">
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Serial No</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="formdata.serialNumber">
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Specification</mat-label>
+          <textarea matInput [(ngModel)]="formdata.specification"></textarea>
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Received Date</mat-label>
+            <input type="date" matInput placeholder="Placeholder" [(ngModel)]="formdata.assetsreciveddate">
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Warranty Date</mat-label>
+            <input type="date" matInput placeholder="Placeholder" [(ngModel)]="formdata.warrantydate">
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Imeino1</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="formdata.imeino1">
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Imeino2</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="formdata.imeino2">
+          </mat-form-field>
+          <mat-form-field class="formfield" appearance="outline">
+            <mat-label>Asset Tag</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="formdata.assetTag">
           </mat-form-field>
 
+          <button mat-flat-button style="background-color: blue; color: white;" (click)="addassets()">Submit</button>
     </mat-card-content>
   </mat-card>
   

@@ -1,10 +1,10 @@
-<mat-toolbar color="primary" class="mat-elevation-z8">
+<mat-toolbar color="primary" class="mat-elevation-z8 sticky-toolbar">
     <button (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
     </button>
     <span>Canvas 1.0.0</span>
     
-    <button routerLink="Dashboard" mat-button style="margin-left: 50px;"><mat-icon>dashboard</mat-icon>Dashboard</button>
+    <button  mat-button style="margin-left: 50px;"><mat-icon>dashboard</mat-icon>Dashboard</button>
     <button [matMenuTriggerFor]="frv112" mat-button><mat-icon>local_police</mat-icon>FRV112</button>
     <mat-menu #frv112="matMenu">
         <button [matMenuTriggerFor]="MDT" mat-menu-item>MDT</button>
@@ -12,7 +12,7 @@
     </mat-menu>
 
     <mat-menu #MDT="matMenu">
-      <button mat-menu-item routerLink="MDTSTATUS">MDT Status</button>
+      <button mat-menu-item >MDT Status</button>
         <button mat-menu-item >MDT Daily Reports</button>
        
         <button mat-menu-item >Regular MDT OFFline</button>
@@ -48,7 +48,7 @@
       </mat-menu>
 </mat-toolbar>
 <mat-drawer-container autosize="">
-    <mat-drawer #drawer opened="true" mode="side" position="start" style="min-width: 200px;">
+    <mat-drawer #drawer opened="true" mode="side" position="start" style="min-width: 200px;" class="sticky-sidebar" >
     <mat-nav-list>
 
         <!--  analytics menu  -->
@@ -109,17 +109,35 @@
                   <mat-expansion-panel-header style="padding: 0px;">    
                    <button mat-button><mat-icon>camera</mat-icon>NVR</button>
                   </mat-expansion-panel-header>
-                  <mat-list-item>
+                
                       <button mat-button><mat-icon>settings</mat-icon> Settings</button>
-                  </mat-list-item>
-                  <mat-list-item>
+               <br>
+                  
                       <button mat-button><mat-icon>help</mat-icon> Help</button>
-                  </mat-list-item>
+                
                 </mat-expansion-panel>
               </mat-accordion>
             </mat-expansion-panel>
           </mat-accordion>
-
+ <!--  assets menu  -->
+ <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>       
+          <button mat-button><mat-icon class="material-icons-outlined">
+            inventory
+            </mat-icon> inventory</button>
+    </mat-panel-title>
+      
+    </mat-expansion-panel-header>
+ <a mat-button routerLink="inventorydetails"><mat-icon>details</mat-icon>Inventory Details</a>
+ <br>
+ <button mat-button routerLink="addinventorydetails"><mat-icon>add</mat-icon>Add Inventory</button>
+ <br>
+ <button mat-button routerLink="inventoryissue"><mat-icon>history_edu</mat-icon>Issue and recieved</button>
+ <br>
+  </mat-expansion-panel>
+</mat-accordion>
       <!--  IT menu  -->
       <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
@@ -129,9 +147,9 @@
           </mat-panel-title>
             
           </mat-expansion-panel-header>
-            <button mat-button><mat-icon>summarize</mat-icon>assignment</button>
+       <a mat-button routerLink="table"><mat-icon>summarize</mat-icon>assignment</a>
        <br>
-       <button mat-button><mat-icon>summarize</mat-icon>VNA</button>
+       <button mat-button ><mat-icon>summarize</mat-icon>VNA</button>
        <br>
        <button mat-button><mat-icon>summarize</mat-icon> VTR</button>
        <br>
@@ -150,14 +168,12 @@
        <button mat-button><mat-icon>summarize</mat-icon> Nearest Vehicle</button>
         </mat-expansion-panel>
       </mat-accordion>
-      
         <mat-list> 
 </mat-list>
     </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content> 
         <div style="min-height: 93vh;">
-
           <div style="padding: 20px;">  <router-outlet></router-outlet></div>
             </div>
     </mat-drawer-content>
