@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { serials } from '../inventory/inventoryissuereceived/inventoryissuereceived.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,15 @@ getbrandname(devicetype:string){
     return this.http.get<assetsdataapi[]>(this.baseurl+"getassets");
   }
 
+  getserial():Observable<serials[]>{
+    return this.http.get<serials[]>(this.baseurl+"getserials");
+  }
+
 }
+
+
+
+
 export interface assetsdataapi {
   id:String,
  deviceType:String,

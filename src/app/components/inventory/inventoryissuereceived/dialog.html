@@ -1,0 +1,76 @@
+<mat-dialog-content>
+    <mat-card appearance="outlined">
+        <mat-card-content>
+          <h2>Assets Issue</h2>
+          </mat-card-content>
+          </mat-card>
+      <mat-card appearance="outlined">
+          <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Assets Serial No</mat-label>
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  @for (option of filteredOptions | async; track option) {
+            <mat-option *ngFor="let item of filteredOptions | async" [value]="item.serial_number ">{{item.serial_number }}</mat-option>                  }
+                </mat-autocomplete>
+              </mat-form-field>
+              <mat-form-field class="formfield" appearance="outline">
+                <mat-label>Device</mat-label>
+                <input matInput placeholder="Placeholder">
+              </mat-form-field>
+               <mat-form-field class="formfield" appearance="outline">
+                <mat-label>Brand</mat-label>
+                <input matInput placeholder="Placeholder">
+              </mat-form-field>
+              <mat-form-field class="formfield" appearance="outline">
+                <mat-label>Model</mat-label>
+                <input matInput placeholder="Placeholder">
+              </mat-form-field>
+              <mat-form-field class="formfield" appearance="outline">
+                  <mat-label>Select Department</mat-label>
+                  <mat-select >
+                    <mat-option value="Operation">Operation</mat-option>
+                    <mat-option value="Finance">Finance</mat-option>
+                    <mat-option value="IT">IT</mat-option>
+                    <mat-option value="Analytics">Analytics</mat-option>
+                    <mat-option value="Quality">Quality</mat-option>
+                    <mat-option value="Fleet">Fleet</mat-option>
+                    
+                  </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="formfield" appearance="outline">
+                <mat-label>Select Designation</mat-label>
+                <mat-select >
+                  <mat-option value="RFM">RFM</mat-option>
+                  <mat-option value="RM">RM</mat-option>
+                  <mat-option value="PM">PM</mat-option>
+                  <mat-option value="EME">EME</mat-option>
+                  <mat-option value="FQA">FQA</mat-option>
+                  <mat-option value="SupportStaff">SupportStaff</mat-option>
+                  
+                </mat-select>
+            </mat-form-field>
+                <mat-form-field class="formfield" appearance="outline">
+                  <mat-label>Gid No</mat-label>
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field class="formfield" appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Placeholder">
+                </mat-form-field>
+                <mat-form-field class="formfield" appearance="outline">
+                  <mat-label>Issue Date</mat-label>
+                  <input type="date" matInput placeholder="Placeholder" >
+                </mat-form-field>
+              
+                <button mat-flat-button style="background-color: blue; color: white;">Submit</button>
+          </mat-card-content>
+        </mat-card>
+        
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
