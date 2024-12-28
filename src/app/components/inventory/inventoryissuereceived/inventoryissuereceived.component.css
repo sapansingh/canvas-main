@@ -28,8 +28,6 @@
       margin-bottom: 10px; /* Add margin between fields for spacing */
       font-size: 12px; /* Reduce font size further on smaller screens */
     }
-
-
   }
   
   /* Table container for responsive behavior */
@@ -44,18 +42,15 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 10px;
 }
-
 table th {
   background-color: blue;
   color: white;
 }
-
 th, td {
     border: 1px solid aqua; /* Apply aqua-colored border to both table headers and data cells */
     padding: 8px; /* Add padding inside cells */
     text-align: left; /* Optional: Align text to the left */
 }
-  
   /* Styling for the paginator at the bottom */
   mat-paginator {
     width: 100%;

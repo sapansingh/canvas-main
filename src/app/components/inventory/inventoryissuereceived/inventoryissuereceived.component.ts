@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, ViewChild, OnInit, ChangeDetectionStrategy, Injectable } from '@angular/core';
+import { AfterViewInit, Component, inject, ViewChild, OnInit, ChangeDetectionStrategy, Injectable, Inject } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -7,11 +7,12 @@ import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { ApiserviceService, assetsdataapi } from '../../service/apiservice.service';
+import { ApiserviceService, assetsdataapi, assetsissuedetails } from '../../service/apiservice.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import {
+  MAT_DIALOG_DATA,
   MatDialog,
   MatDialogActions,
   MatDialogClose,
@@ -47,22 +48,69 @@ export class InventoryissuereceivedComponent {
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }
-  recived() {
-    this.dialog.open(Issueassets);
+  recived(data:String) {
+    
+    this.dialog.open(Issueassets,{data:{name:data}});
   }
-  displayedColumns: string[] = ['id', 'deviceType', 'brandName', 'modelName', 'invoiceno', 'serialNumber', 'assetsreciveddate', 'specification', 'warrantydate', 'imeino1', 'imeino2', 'assetTag'];
-  dataSource = new MatTableDataSource<assetsdataapi>([]);// Initialize with an empty array
+  displayedColumns: string[] = ['id', 'serialnumber', 'receivername', 'devicename', 'brandname', 'modelname', 'department', 'designation', 'gidno', 'name', 'issuedate', 'receiveddate','assetsstatus','Action'];
+  dataSource = new MatTableDataSource<assetsissuedetails>([]);// Initialize with an empty array
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
   private apiservice = inject(ApiserviceService);
 tabledata:any;
-  ngOnInit(): void {
-    this.apiservice.getassetdata().subscribe((assets: assetsdataapi[]) => {
+private interval: any;
+ngOnInit(): void {
+ 
+  this.loadtabledata();
+
+}
+
+
+
+  ngOnDestroy(): void {
+    // Clear interval when the component is destroyed to prevent memory leaks
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  loadtabledata(){
+    this.apiservice.getassetsissue().subscribe((assets: assetsissuedetails[]) => {
       this.dataSource.data = assets;  // Dynamically populate the table with the fetched data
     });
   }
+
+
+  exportToCSV(): void {
+    const header = Object.keys(this.dataSource.data[0]).join(',') + '\n';
+    const rows = this.dataSource.data.map(row => {
+      return Object.values(row).join(',');
+    }).join('\n');
+
+    const csvContent = header + rows;
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = "Issue and Received data" + '.csv';
+    link.click();
+  }
+
+
+
+  // Helper function to convert JSON to CSV
+  private convertJsonToCsv(json: any[]): string {
+    const header = Object.keys(json[0]);
+    const rows = json.map(item => header.map(field => item[field]).join(','));
+    return [header.join(','), ...rows].join('\n');
+  
+}
+ 
+  
+  
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -132,6 +180,31 @@ export class DialogElementsExampleDialog implements OnInit {
 
 export class Issueassets implements OnInit {
 
+  recformdata:any={
+    serialnumber:"",
+    receiveddate:"",
+    receivername:"",
+    assetsstatus:"received",
+    remark:""
+  }
+
+
+   private serv=inject(ApiserviceService);
+
+  formclick(){
+    this.serv.receivedget(this.recformdata).subscribe((res:any)=>{
+      if(res==1){
+        alert("Assets received");
+      }
+    });
+    
+  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {name: string}) { 
+      this.recformdata.serialnumber=this.data.name;
+  }
+
+  // receivedget(serialnumber:String,receiveddate:String,receivername:String,assetsstatus:String,remark:String){
+
   myControl = new FormControl<string | serials>('');
   options: serials[] = [];
   filteredOptions!: Observable<serials[]>;
@@ -139,9 +212,7 @@ export class Issueassets implements OnInit {
   ngOnInit() {
  
   }
-  displayFn(serials: serials): string {
-    return serials && serials.serial_number ? serials.serial_number : '';
-  }
+
 
 
 }

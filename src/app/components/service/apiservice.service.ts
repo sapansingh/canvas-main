@@ -36,9 +36,37 @@ getbrandname(devicetype:string){
     return this.http.get<serials[]>(this.baseurl+"getserials");
   }
 
+  getassetsissue():Observable<assetsissuedetails[]>{
+    return this.http.get<assetsissuedetails[]>(this.baseurl+"assetsissuedetails");
+  }
+  getdetaildata(Serials:String){
+    return this.http.get(this.baseurl+"serialdetails?serails="+Serials);
+  }
+
+  receivedget(formdata:any){
+    return this.http.get(this.baseurl+"received?serialnumber="+formdata.serialnumber+"&receiveddate="+formdata.receiveddate+"&receivername="+formdata.receivername+"&assetsstatus="+formdata.assetsstatus+"&remark="+formdata.remark);
+  }
+
 }
 
 
+
+export interface assetsissuedetails{
+  id: String,
+  serialnumber: String,
+  receivername: String,
+  devicename: String,
+  brandname: String,
+  modelname: String ,
+  department: String,
+  designation: String,
+  gidno: String,
+  name: String,
+  issuedate: String,
+  receiveddate: String,
+  assetsstatus: String,
+  remark: String
+}
 
 
 export interface assetsdataapi {

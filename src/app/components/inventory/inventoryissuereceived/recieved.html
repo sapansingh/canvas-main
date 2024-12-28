@@ -8,63 +8,23 @@
           <mat-card-content>
             <mat-form-field appearance="outline">
                 <mat-label>Assets Serial No</mat-label>
-                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                  @for (option of filteredOptions | async; track option) {
-                    <mat-option [value]="option"></mat-option>
-                  } 
-                </mat-autocomplete>
+                <input type="text" matInput [(ngModel)]="recformdata.serialnumber">
               </mat-form-field>
-              <mat-form-field class="formfield" appearance="outline">
-                <mat-label>Device</mat-label>
-                <input matInput placeholder="Placeholder">
-              </mat-form-field>
-               <mat-form-field class="formfield" appearance="outline">
-                <mat-label>Brand</mat-label>
-                <input matInput placeholder="Placeholder">
-              </mat-form-field>
-              <mat-form-field class="formfield" appearance="outline">
-                <mat-label>Model</mat-label>
-                <input matInput placeholder="Placeholder">
-              </mat-form-field>
-              <mat-form-field class="formfield" appearance="outline">
-                  <mat-label>Select Department</mat-label>
-                  <mat-select >
-                    <mat-option value="Operation">Operation</mat-option>
-                    <mat-option value="Finance">Finance</mat-option>
-                    <mat-option value="IT">IT</mat-option>
-                    <mat-option value="Analytics">Analytics</mat-option>
-                    <mat-option value="Quality">Quality</mat-option>
-                    <mat-option value="Fleet">Fleet</mat-option>
-                  </mat-select>
-              </mat-form-field>
-              
-              <mat-form-field class="formfield" appearance="outline">
-                <mat-label>Select Designation</mat-label>
-                <mat-select >
-                  <mat-option value="RFM">RFM</mat-option>
-                  <mat-option value="RM">RM</mat-option>
-                  <mat-option value="PM">PM</mat-option>
-                  <mat-option value="EME">EME</mat-option>
-                  <mat-option value="FQA">FQA</mat-option>
-                  <mat-option value="SupportStaff">SupportStaff</mat-option>
-                  
-                </mat-select>
-            </mat-form-field>
+            
                 <mat-form-field class="formfield" appearance="outline">
-                  <mat-label>Gid No</mat-label>
-                  <input matInput placeholder="Placeholder">
+                  <mat-label>Reciever Name</mat-label>
+                  <input matInput placeholder="Placeholder" [(ngModel)]="recformdata.receivername">
                 </mat-form-field>
                 <mat-form-field class="formfield" appearance="outline">
-                  <mat-label>Name</mat-label>
-                  <input matInput placeholder="Placeholder">
+                  <mat-label>Receiver Date</mat-label>
+                  <input type="date" matInput placeholder="Placeholder"  [(ngModel)]="recformdata.receiveddate" >
                 </mat-form-field>
                 <mat-form-field class="formfield" appearance="outline">
-                  <mat-label>Issue Date</mat-label>
-                  <input type="date" matInput placeholder="Placeholder" >
+                  <mat-label>Reciever Name</mat-label>
+                  <textarea matInput placeholder="Placeholder" [(ngModel)]="recformdata.remark"></textarea>
                 </mat-form-field>
               
-                <button mat-flat-button style="background-color: blue; color: white;">Submit</button>
+                <button mat-flat-button style="background-color: blue; color: white;" mat-dialog-close (click)="formclick()">Submit</button>
           </mat-card-content>
         </mat-card>
         
