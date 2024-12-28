@@ -47,6 +47,11 @@ getbrandname(devicetype:string){
     return this.http.get(this.baseurl+"received?serialnumber="+formdata.serialnumber+"&receiveddate="+formdata.receiveddate+"&receivername="+formdata.receivername+"&assetsstatus="+formdata.assetsstatus+"&remark="+formdata.remark);
   }
 
+  getassetsdetails(data:any){
+    return this.http.post(this.baseurl+"issue",data);
+  }
+
+
 }
 
 

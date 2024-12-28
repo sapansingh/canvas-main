@@ -8,27 +8,27 @@
           <mat-card-content>
             <mat-form-field appearance="outline">
                 <mat-label>Assets Serial No</mat-label>
-                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="formdata.serialnumber">
                 <mat-autocomplete #auto="matAutocomplete">
-                  @for (option of filteredOptions | async; track option) {
-            <mat-option *ngFor="let item of filteredOptions | async" [value]="item.serial_number ">{{item.serial_number }}</mat-option>                  }
+                  @for (item of filteredOptions | async; track item) {
+            <mat-option [value]="item.serial_number" (click)="assetmap(item.serial_number)">{{item.serial_number }}</mat-option>                  }
                 </mat-autocomplete>
               </mat-form-field>
               <mat-form-field class="formfield" appearance="outline">
                 <mat-label>Device</mat-label>
-                <input matInput placeholder="Placeholder">
+                <input matInput placeholder="Placeholder" [(ngModel)]="formdata.devicename" disabled>
               </mat-form-field>
                <mat-form-field class="formfield" appearance="outline">
                 <mat-label>Brand</mat-label>
-                <input matInput placeholder="Placeholder">
+                <input matInput placeholder="Placeholder" [(ngModel)]="formdata.brandname" disabled>
               </mat-form-field>
               <mat-form-field class="formfield" appearance="outline">
                 <mat-label>Model</mat-label>
-                <input matInput placeholder="Placeholder">
+                <input matInput placeholder="Placeholder" [(ngModel)]="formdata.modelname" disabled >
               </mat-form-field>
               <mat-form-field class="formfield" appearance="outline">
                   <mat-label>Select Department</mat-label>
-                  <mat-select >
+                  <mat-select [(ngModel)]="formdata.department">
                     <mat-option value="Operation">Operation</mat-option>
                     <mat-option value="Finance">Finance</mat-option>
                     <mat-option value="IT">IT</mat-option>
@@ -41,7 +41,7 @@
 
               <mat-form-field class="formfield" appearance="outline">
                 <mat-label>Select Designation</mat-label>
-                <mat-select >
+                <mat-select [(ngModel)]="formdata.designation">
                   <mat-option value="RFM">RFM</mat-option>
                   <mat-option value="RM">RM</mat-option>
                   <mat-option value="PM">PM</mat-option>
@@ -53,18 +53,18 @@
             </mat-form-field>
                 <mat-form-field class="formfield" appearance="outline">
                   <mat-label>Gid No</mat-label>
-                  <input matInput placeholder="Placeholder">
+                  <input matInput placeholder="Placeholder" [(ngModel)]="formdata.gidno">
                 </mat-form-field>
                 <mat-form-field class="formfield" appearance="outline">
                   <mat-label>Name</mat-label>
-                  <input matInput placeholder="Placeholder">
+                  <input matInput placeholder="Placeholder" [(ngModel)]="formdata.name">
                 </mat-form-field>
                 <mat-form-field class="formfield" appearance="outline">
                   <mat-label>Issue Date</mat-label>
-                  <input type="date" matInput placeholder="Placeholder" >
+                  <input type="date" matInput placeholder="Placeholder" [(ngModel)]="formdata.issuedate">
                 </mat-form-field>
               
-                <button mat-flat-button style="background-color: blue; color: white;">Submit</button>
+                <button mat-flat-button style="background-color: blue; color: white;" (click)="onclifun()" mat-dialog-close>Submit</button>
           </mat-card-content>
         </mat-card>
         

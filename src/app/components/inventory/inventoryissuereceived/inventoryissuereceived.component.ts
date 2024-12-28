@@ -145,7 +145,32 @@ export class DialogElementsExampleDialog implements OnInit {
   myControl = new FormControl<string | serials>('');
   filteredOptions!: Observable<serials[]>;
   serialsno: serials[] = [];
+  assetdata:any=[];
+   formdata:any={
+      serialnumber: "",
+      receivername: "",
+      devicename: "",
+      brandname: "",
+      modelname: "" ,
+      department: "",
+      designation:"",
+      gidno: "",
+      name: "",
+      issuedate: "",
+      receiveddate: "",
+      assetsstatus: "Issue",
+      remark: ""
+    }
 
+  assetmap(Serials:String){
+      this.serv.getdetaildata(Serials).subscribe((res:any)=>{
+        this.formdata.devicename=res[0].device_type;
+        this.formdata.brandname=res[0].brand_name;
+        this.formdata.modelname=res[0].model_name;
+      });
+
+      console.log(Serials);
+  }
   ngOnInit() {
     // Fetch serial numbers from the service
     this.serv.getserial().subscribe((res: serials[]) => {
@@ -158,7 +183,18 @@ export class DialogElementsExampleDialog implements OnInit {
       map(value => this._filter(value || ''))
     );
   }
-
+  onclifun(){
+    if(this.formdata.serialnumber!="" && this.formdata.department!="" && this.formdata.designation!="" && this.formdata.gidno!="" && this.formdata.name!=""){
+      this.serv.getassetsdetails(this.formdata).subscribe((res:any)=>{
+        if(res.status=="ok"){
+            alert("Asset has been Issued");
+        }else{
+          alert("please fill all fields");
+        }
+      });
+    }
+   
+  }
   private _filter(value: string | serials): serials[] {
     // If the value is a string, proceed to filter, otherwise return an empty array
     const searchValue = typeof value === 'string' ? value.toLowerCase() : '';
