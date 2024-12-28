@@ -21,65 +21,65 @@
       <table mat-table [dataSource]="dataSource">
         <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <th class="theading" mat-header-cell *matHeaderCellDef> No. </th>
           <td mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
     
         <!-- Name Column -->
         <ng-container matColumnDef="deviceType">
-          <th mat-header-cell *matHeaderCellDef> deviceType </th>
+          <th mat-header-cell *matHeaderCellDef> Device Type </th>
           <td mat-cell *matCellDef="let element"> {{element.deviceType}} </td>
         </ng-container>
     
           <!-- Name Column -->
           <ng-container matColumnDef="brandName">
-            <th mat-header-cell *matHeaderCellDef> brandName </th>
+            <th mat-header-cell *matHeaderCellDef> Brand </th>
             <td mat-cell *matCellDef="let element"> {{element.brandName}} </td>
           </ng-container>
     
          <!-- Name Column -->
          <ng-container matColumnDef="modelName">
-          <th mat-header-cell *matHeaderCellDef> modelName </th>
+          <th mat-header-cell *matHeaderCellDef> Model </th>
           <td mat-cell *matCellDef="let element"> {{element.modelName}} </td>
         </ng-container>
   
           <!-- Name Column -->
           <ng-container matColumnDef="invoiceno">
-            <th mat-header-cell *matHeaderCellDef> invoiceno </th>
+            <th mat-header-cell *matHeaderCellDef> Invoice no </th>
             <td mat-cell *matCellDef="let element"> {{element.invoiceno}} </td>
           </ng-container>
     
   
           <ng-container matColumnDef="serialNumber">
-            <th mat-header-cell *matHeaderCellDef> serialNumber </th>
+            <th mat-header-cell *matHeaderCellDef> Serial Number </th>
             <td mat-cell *matCellDef="let element"> {{element.serialNumber}} </td>
           </ng-container>
   
   
           <ng-container matColumnDef="assetsreciveddate">
-            <th mat-header-cell *matHeaderCellDef> assetsreciveddate </th>
+            <th mat-header-cell *matHeaderCellDef> Assets Recived </th>
             <td mat-cell *matCellDef="let element"> {{element.assetsreciveddate}} </td>
           </ng-container>
   
           <ng-container matColumnDef="specification">
-            <th mat-header-cell *matHeaderCellDef> specification </th>
+            <th mat-header-cell *matHeaderCellDef> Specification </th>
             <td mat-cell *matCellDef="let element"> {{element.specification}} </td>
           </ng-container>
           <ng-container matColumnDef="warrantydate">
-            <th mat-header-cell *matHeaderCellDef> warrantydate </th>
+            <th mat-header-cell *matHeaderCellDef> Warranty Date </th>
             <td mat-cell *matCellDef="let element"> {{element.warrantydate}} </td>
           </ng-container>
   
           <ng-container matColumnDef="imeino1">
-            <th mat-header-cell *matHeaderCellDef> imeino1 </th>
+            <th mat-header-cell *matHeaderCellDef> Imeino1 </th>
             <td mat-cell *matCellDef="let element"> {{element.imeino1}} </td>
           </ng-container>
           <ng-container matColumnDef="imeino2">
-            <th mat-header-cell *matHeaderCellDef> imeino2 </th>
+            <th mat-header-cell *matHeaderCellDef> Imeino2 </th>
             <td mat-cell *matCellDef="let element"> {{element.imeino2}} </td>
           </ng-container>
           <ng-container matColumnDef="assetTag">
-            <th mat-header-cell *matHeaderCellDef> assetTag </th>
+            <th mat-header-cell *matHeaderCellDef> AssetTag </th>
             <td mat-cell *matCellDef="let element"> {{element.assetTag}} </td>
           </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

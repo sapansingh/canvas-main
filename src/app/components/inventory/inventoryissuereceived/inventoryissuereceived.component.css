@@ -28,17 +28,8 @@
       margin-bottom: 10px; /* Add margin between fields for spacing */
       font-size: 12px; /* Reduce font size further on smaller screens */
     }
-  
-    .container {
-      flex-direction: column; /* Stack the form fields vertically */
-      align-items: stretch;   /* Ensure form fields take full width */
-    }
-    
-    button {
-      width: 100%; /* Make the button take full width on smaller screens */
-      margin-top: 10px; /* Add margin on top */
-      font-size: 14px; /* Reduce font size of the button */
-    }
+
+
   }
   
   /* Table container for responsive behavior */
@@ -47,38 +38,23 @@
     overflow-x: auto;  
     overflow-y: auto;        /* Allow horizontal scrolling if the table is too wide */
   }
-  
-  /* Table Styling */
   table {
-    width: 100%;              /* Table should take full available width */
-    max-width: 100%;          /* Ensure table never exceeds 100% of its container */
-    table-layout: auto;       /* Allow columns to resize based on content */
-    border-collapse: collapse; /* Collapse borders between table cells */
-    font-size: 14px;          /* Reduce font size for the entire table */
-  }
-  
-  mat-header-cell, mat-cell {
-    padding: 8px;             /* Add padding for better readability */
-    text-align: left;         /* Align text to the left */
-    font-size: 14px;          /* Reduce font size for table headers and cells */
-  }
-  
-  /* Ensure table headers and cells can scroll horizontally if content overflows */
-  @media (max-width: 768px) {
-    table {
-      width: 100%;
-      overflow-x: auto;       /* Enable horizontal scrolling on smaller screens */
-      display: block;         /* Make the table block to allow scrolling */
-      white-space: nowrap;    /* Prevent text from wrapping inside cells */
-      font-size: 12px;        /* Further reduce font size for mobile devices */
-    }
-    
-    mat-header-cell, mat-cell {
-      display: inline-block;  /* Display cells as inline blocks for scrolling */
-      min-width: 120px;       /* Ensure each cell has a minimum width */
-      font-size: 12px;        /* Further reduce font size for table cells */
-    }
-  }
+    width: 100%;
+    border-collapse: collapse; /* Apply border-collapse to the table */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+}
+
+table th {
+  background-color: blue;
+  color: white;
+}
+
+th, td {
+    border: 1px solid aqua; /* Apply aqua-colored border to both table headers and data cells */
+    padding: 8px; /* Add padding inside cells */
+    text-align: left; /* Optional: Align text to the left */
+}
   
   /* Styling for the paginator at the bottom */
   mat-paginator {
