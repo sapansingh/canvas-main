@@ -40,7 +40,21 @@ tabledata:any;
       this.dataSource.data = assets;  // Dynamically populate the table with the fetched data
     });
   }
+  exportToCSV(): void {
+    const header = Object.keys(this.dataSource.data[0]).join(',') + '\n';
+    const rows = this.dataSource.data.map(row => {
+      return Object.values(row).join(',');
+    }).join('\n');
 
+    const csvContent = header + rows;
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = "Issue and Received data" + '.csv';
+    link.click();
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

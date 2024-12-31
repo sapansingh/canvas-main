@@ -11,16 +11,10 @@
     
       </mat-form-field>
       <span class="pflex"></span>
-      <mat-form-field appearance="outline">
-        <mat-label>Start</mat-label>
-        <input matInput type="date" placeholder="Placeholder" (keyup)="applyFilter($event)">
-      </mat-form-field>
-      <mat-form-field style="margin-left: 10px;" appearance="outline">
-        <mat-label>End</mat-label>
-        <input matInput type="date" placeholder="Placeholder" (keyup)="applyFilter($event)">
-      </mat-form-field>
-      <button mat-flat-button style="margin-left: 20px; margin-bottom: 30px;background-color: blue;color: white;">Submit</button>
-     </div>
+    
+      <button mat-flat-button style="margin-right: 20px; margin-bottom: 30px;background-color: red;color: white;" (click)="exportToCSV()">Export</button>
+ 
+    </div>
   </mat-card-content>
 </mat-card>
 

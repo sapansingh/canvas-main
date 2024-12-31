@@ -1,6 +1,20 @@
 {
   "name": "canvas",
   "version": "0.0.0",
+  "private": true,
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.",
+  "homepage": "https://github.com/sapansingh/canvas-main#readme",
+  "bugs": {
+    "url": "https://github.com/sapansingh/canvas-main/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sapansingh/canvas-main.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +23,6 @@
     "test": "ng test",
     "serve:ssr:canvas": "node dist/canvas/server/server.mjs"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",
     "@angular/cdk": "^17.0.0",
@@ -23,8 +36,9 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.12",
-    "apexcharts": "^4.2.0",
+    "apexcharts": "^4.3.0",
     "express": "^4.18.2",
+    "ng-apexcharts": "^1.15.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
