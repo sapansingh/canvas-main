@@ -11,11 +11,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-addinventory',
-  standalone: true,
-  imports: [MatCardModule,MatInputModule,MatFormFieldModule,MatSelectModule,CommonModule,MatButtonModule,MatOptionModule,FormsModule],
-  templateUrl: './addinventory.component.html',
-  styleUrl: './addinventory.component.css'
+    selector: 'app-addinventory',
+    imports: [MatCardModule, MatInputModule, MatFormFieldModule, MatSelectModule, CommonModule, MatButtonModule, MatOptionModule, FormsModule],
+    templateUrl: './addinventory.component.html',
+    styleUrl: './addinventory.component.css'
 })
 export class AddinventoryComponent {
 

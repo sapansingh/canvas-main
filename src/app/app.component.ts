@@ -12,12 +12,10 @@ import { signal} from '@angular/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterLink,RouterModule, MatExpansionModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatListModule, RouterOutlet, CommonModule, MatTooltipModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
- 
+    selector: 'app-root',
+    imports: [RouterLink, RouterModule, MatExpansionModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, MatSidenavModule, MatListModule, RouterOutlet, CommonModule, MatTooltipModule],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'canvas';

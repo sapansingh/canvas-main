@@ -25,22 +25,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { MatOptionModule } from '@angular/material/core';
 @Component({
-  selector: 'app-inventoryissuereceived',
-  standalone: true,
-   imports: [
-     MatTableModule,
-     MatPaginatorModule,
-     MatFormFieldModule,
-     MatIconModule,
-     MatInputModule,
-     FormsModule,
-     MatButtonModule,
-     MatCardModule,
-     MatAutocompleteModule 
-   ],
-  templateUrl: './inventoryissuereceived.component.html',
-  styleUrl: './inventoryissuereceived.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-inventoryissuereceived',
+    imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        FormsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatAutocompleteModule
+    ],
+    templateUrl: './inventoryissuereceived.component.html',
+    styleUrl: './inventoryissuereceived.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InventoryissuereceivedComponent {
   readonly dialog = inject(MatDialog);
@@ -133,12 +132,11 @@ export interface serials {
   device_type: string
 }
 @Component({
-  selector: 'dialog',
-  templateUrl: 'dialog.html',
-  styleUrl: './inventoryissuereceived.component.css',
-  standalone: true,
-  imports: [CommonModule,FormsModule,MatFormFieldModule,MatInputModule,MatAutocompleteModule,ReactiveFormsModule,AsyncPipe,MatAutocompleteModule, MatDialogContent, MatDialogActions, MatDialogClose,MatCardModule,MatInputModule,MatFormFieldModule,MatSelectModule,CommonModule,MatButtonModule,MatOptionModule,FormsModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'dialog',
+    templateUrl: 'dialog.html',
+    styleUrl: './inventoryissuereceived.component.css',
+    imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, AsyncPipe, MatAutocompleteModule, MatDialogContent, MatDialogActions, MatDialogClose, MatCardModule, MatInputModule, MatFormFieldModule, MatSelectModule, CommonModule, MatButtonModule, MatOptionModule, FormsModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogElementsExampleDialog implements OnInit {
   private serv = inject(ApiserviceService);
@@ -205,12 +203,11 @@ export class DialogElementsExampleDialog implements OnInit {
 }
 
 @Component({
-  selector: 'recieved',
-  templateUrl: 'recieved.html',
-  styleUrl: './inventoryissuereceived.component.css',
-  standalone: true,
-  imports: [FormsModule,MatFormFieldModule,MatInputModule,MatAutocompleteModule,ReactiveFormsModule,AsyncPipe,MatAutocompleteModule, MatDialogContent, MatDialogActions, MatDialogClose,MatCardModule,MatInputModule,MatFormFieldModule,MatSelectModule,CommonModule,MatButtonModule,MatOptionModule,FormsModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'recieved',
+    templateUrl: 'recieved.html',
+    styleUrl: './inventoryissuereceived.component.css',
+    imports: [FormsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, MatAutocompleteModule, MatDialogContent, MatDialogActions, MatDialogClose, MatCardModule, MatInputModule, MatFormFieldModule, MatSelectModule, CommonModule, MatButtonModule, MatOptionModule, FormsModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 

@@ -7,20 +7,13 @@
         <mat-label>Search</mat-label>
         <input matInput placeholder="Placeholder" (keyup)="applyFilter($event)">
         <mat-icon matSuffix>search</mat-icon>
-    
-    
       </mat-form-field>
       <span class="pflex"></span>
-    
       <button mat-flat-button style="margin-right: 20px; margin-bottom: 30px;background-color: red;color: white;" (click)="exportToCSV()">Export</button>
  
     </div>
   </mat-card-content>
 </mat-card>
-
-
-
-
 
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">

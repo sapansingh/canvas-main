@@ -4,27 +4,30 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ApiserviceService, assetsdataapi } from '../../service/apiservice.service';
 import { MatCardModule } from '@angular/material/card';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+
+
 @Component({
-  selector: 'app-assetsdetails',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    MatButtonModule,
-    MatCardModule
-  ],
-  templateUrl: './assetsdetails.component.html',
-  styleUrls: ['./assetsdetails.component.css']
+    selector: 'app-assetsdetails',
+    imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        FormsModule,
+        MatButtonModule,
+        MatCardModule,
+        CommonModule
+    ],
+    templateUrl: './assetsdetails.component.html',
+    styleUrls: ['./assetsdetails.component.css']
 })
 export class AssetsdetailsComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'deviceType', 'brandName', 'modelName', 'invoiceno', 'serialNumber', 'assetsreciveddate', 'specification', 'warrantydate', 'imeino1', 'imeino2', 'assetTag'];

@@ -5,11 +5,10 @@ import {
 import { PilotappusageComponent } from "./apexcharts/pilotappusage/pilotappusage.component";
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [NgApexchartsModule, PilotappusageComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+    selector: 'app-dashboard',
+    imports: [NgApexchartsModule, PilotappusageComponent],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.css'
 })
 
 export class DashboardComponent {
