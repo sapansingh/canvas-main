@@ -1,0 +1,64 @@
+/* General Container to center the content */
+.container {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;     /* Center items vertically */
+    width: 100%;
+    flex-wrap: wrap;         /* Allow wrapping for small screens */
+    padding: 10px;           /* Add some padding */
+    font-size: 14px;         /* Reduce font size globally in the container */
+  }
+  
+  /* Flex properties for the span element to allow space between form fields */
+  .pflex {
+    flex: 1 1 auto;          /* Allow this element to grow and shrink */
+  }
+  
+  /* Styling for individual mat-form-fields */
+  mat-form-field {
+    margin: 5px;
+    width: 200px; /* Adjust the width for smaller screens */
+    font-size: 14px; /* Reduce the font size inside form fields */
+  }
+  
+  /* For responsive layout on smaller screens */
+  @media (max-width: 768px) {
+    mat-form-field {
+      width: 100%; /* Make form fields take full width on smaller screens */
+      margin-bottom: 10px; /* Add margin between fields for spacing */
+      font-size: 12px; /* Reduce font size further on smaller screens */
+    }
+  }
+  
+  /* Table container for responsive behavior */
+  .mat-elevation-z8 {
+    width: 100%;              /* Ensure table container takes up full width */
+    overflow-x: auto;  
+    overflow-y: auto;        /* Allow horizontal scrolling if the table is too wide */
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Apply border-collapse to the table */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+  }
+  table th {
+  background-color: blue;
+  color: white;
+  }
+  th, td {
+    border: 1px solid aqua; /* Apply aqua-colored border to both table headers and data cells */
+    padding: 8px; /* Add padding inside cells */
+    text-align: left; /* Optional: Align text to the left */
+  }
+  /* Styling for the paginator at the bottom */
+  mat-paginator {
+    width: 100%;
+    margin-top: 20px;        /* Add some space above paginator */
+    padding: 10px;           /* Add padding to the paginator */
+    font-size: 12px;         /* Reduce font size of paginator */
+  }
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
