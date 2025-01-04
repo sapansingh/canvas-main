@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VbComponent } from './vb.component';
+import { MisscallComponent } from './misscall.component';
 
-describe('VbComponent', () => {
-  let component: VbComponent;
-  let fixture: ComponentFixture<VbComponent>;
+describe('MisscallComponent', () => {
+  let component: MisscallComponent;
+  let fixture: ComponentFixture<MisscallComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VbComponent]
+      imports: [MisscallComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VbComponent);
+    fixture = TestBed.createComponent(MisscallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

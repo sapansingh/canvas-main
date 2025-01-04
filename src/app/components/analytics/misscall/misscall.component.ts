@@ -6,17 +6,15 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ApiserviceService, assetsdataapi } from '../../service/apiservice.service';
 import { MatCardModule } from '@angular/material/card';
-import { BrowserModule } from '@angular/platform-browser'; // Required for any Angular application
 import { MatDatepickerModule } from '@angular/material/datepicker'; // For MatDatepicker
 import { MatFormFieldModule } from '@angular/material/form-field'; // For MatFormField
 import { MatInputModule } from '@angular/material/input'; // For input fields
-import { MatNativeDateModule, MatOptionModule } from '@angular/material/core'; // For native date handling
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // For two-way data binding
+import { MatNativeDateModule } from '@angular/material/core'; // For native date handling
+import { FormsModule } from '@angular/forms'; // For two-way data binding
 import { AnalyticsService } from '../../service/analytics.service';
-import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatDialogContent, MatDialogActions, MatDialogClose, MatDialog } from '@angular/material/dialog';
-import { MatSelectModule } from '@angular/material/select';
+import {  DatePipe } from '@angular/common';
+
+import { MatDialog } from '@angular/material/dialog';
 import { pregresdialod } from '../progressh';
 
 
@@ -33,11 +31,11 @@ import { pregresdialod } from '../progressh';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule],
-  templateUrl: './vb.component.html',
-  styleUrl: './vb.component.css',
+  templateUrl: './misscall.component.html',
+  styleUrl: './misscall.component.css',
   providers: [DatePipe]
 })
-export class VbComponent { constructor(private datePipe: DatePipe,private dialog: MatDialog){
+export class MisscallComponent { constructor(private datePipe: DatePipe,private dialog: MatDialog){
 
 }
 dialogRef: any;
@@ -55,14 +53,19 @@ closeDialog() {
   }
 }
   displayedColumns: string[] = ['id', 'callid',
-'phonenumber',
 'vehicle_no',
 'contact_number',
-'sent_time',
-'followup_time',
+'vehicle_distance',
+'attempted_time',
+'feedback_remarks_description',
+'callback_time',
 'ero_id',
-'vb_desk_id',
-'submit_time',
+'vb_id',
+'chief_complaint_name',
+'district_name',
+'mandal_name',
+'city_name',
+'landmark',
 
 ];
   dataSource = new MatTableDataSource<any>([]);// Initialize with an empty array
@@ -88,7 +91,7 @@ id:number=0;
    
       this.dialogRef.close();
     }else{
-      this.anaserv.getvb(this.payload).subscribe((res:any)=>{
+      this.anaserv.getvtr(this.payload).subscribe((res:any)=>{
         this.dataSource.data=res;
         this.dialogRef.close();
        
