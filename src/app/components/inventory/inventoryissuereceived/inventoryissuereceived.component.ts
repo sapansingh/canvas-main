@@ -24,6 +24,7 @@ import {AsyncPipe} from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { MatOptionModule } from '@angular/material/core';
+import { forms } from '../forms';
 @Component({
     selector: 'app-inventoryissuereceived',
     imports: [
@@ -43,9 +44,17 @@ import { MatOptionModule } from '@angular/material/core';
 })
 export class InventoryissuereceivedComponent {
   readonly dialog = inject(MatDialog);
-
+ref:any;
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
+  }
+
+  openform() {
+    
+   this.ref=this.dialog.open(forms,{
+    width: '80%', 
+    height: '100%',
+   });
   }
   recived(data:String) {
     
