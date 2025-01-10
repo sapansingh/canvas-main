@@ -7,7 +7,7 @@
     <div class="rows">
         <h3>Name Of Company</h3> 
         <h3 class="company-name"><b>EMRI GREEN HEALTH SERVICES</b></h3> 
-        <h3 class="date-label">Date:</h3>
+        <h3 class="date-label">Date: {{formdata.issuedate}}</h3>
     </div>
     <div class="rows">
         <h3>Office Address:</h3> 
@@ -31,11 +31,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>DASDASFASFSDFSDFSDFA</td>
-                    <td>AccessDASFAFGASDFASFAFAS</td>
-                    <td>ItemASFDASFS gdszgv</td>
-                    <td>sadasfFGSDFGWS WS SE RF</td>
-                    <td>In ED SDF SDFSGEWRGHRGT</td>
+                    <td>{{formdata.serialnumber}}</td>
+                    <td>{{formdata.modelname}}</td>
+                    <td>{{formdata.devicename}}</td>
+                    <td>1</td>
+                    <td>{{formdata.assetsstatus}}</td>
                 </tr>
                 <!-- More rows can be added here -->
             </tbody>
@@ -48,23 +48,23 @@
             <tbody>
                 <tr>
                     <th>Name:</th>
-                    <td>test</td>
+                    <td>{{formdata.name}}</td>
                 </tr>
                 <tr>
                     <th>Emp Id:</th>
-                    <td>test</td>
+                    <td>{{formdata.gidno}}</td>
                 </tr>
                 <tr>
                     <th>Department:</th>
-                    <td>test</td>
+                    <td>{{formdata.department}}</td>
                 </tr>
                 <tr>
                     <th>Designation:</th>
-                    <td>test</td>
+                    <td>{{formdata.designation}}</td>
                 </tr>
                 <tr>
                     <th>Asset Tag:</th>
-                    <td>test</td>
+                    <td>{{formdata.assettag}}</td>
                 </tr>
             </tbody>
         </table>
@@ -75,7 +75,7 @@
     <div class="center"></div>
     
     <p class="acknowledgement-text">
-        I MS/MR. ________  acknowledge that I have received the above-mentioned assets. I understand that these assets belong to EMRI GHS and are under my possession for carrying out my office work. I hereby assure that I take full responsibility for the care of the company's assets. Upon resignation or termination, I will immediately hand over the asset in working condition to the company.
+        I MS/MR. {{formdata.name}}  acknowledge that I have received the above-mentioned assets. I understand that these assets belong to EMRI GHS and are under my possession for carrying out my office work. I hereby assure that I take full responsibility for the care of the company's assets. Upon resignation or termination, I will immediately hand over the asset in working condition to the company.
     </p>
     <hr>
   

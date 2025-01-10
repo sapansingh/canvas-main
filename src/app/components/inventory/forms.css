@@ -13,7 +13,7 @@
 /* If you want the content to be scrollable, you can apply these styles */
 .mat-mdc-dialog-content.scrollable {
   overflow: auto;     /* Enable scrolling when content exceeds the dialog's height */
-  max-height: 100vh;   /* Adjust this to make sure the content fits on screen */
+  max-height: 65vh;   /* Adjust this to make sure the content fits on screen */
  
 }
 

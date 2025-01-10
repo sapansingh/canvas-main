@@ -91,7 +91,7 @@
           <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">
-              <button mat-icon-button ><mat-icon style="color: rgb(0, 38, 253);" (click)="openform()">receipt_long</mat-icon></button>
+              <button mat-icon-button > <mat-icon style="color: rgb(0, 38, 253);" (click)="openform(element.id)">receipt_long</mat-icon></button>
               @if(element.assetsstatus!='received'){
                 <button mat-raised-button style="background-color: red;color: white;" (click)="recived(element.serialnumber)">Receive</button>
               }@else {

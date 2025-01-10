@@ -49,12 +49,11 @@ ref:any;
     this.dialog.open(DialogElementsExampleDialog);
   }
 
-  openform() {
+  openform(data:String) {
     
-   this.ref=this.dialog.open(forms,{
-    width: '80%', 
-    height: '100%',
-   });
+   this.ref=this.dialog.open(forms,{data:{name:data}});
+
+   
   }
   recived(data:String) {
     
@@ -166,7 +165,8 @@ export class DialogElementsExampleDialog implements OnInit {
       issuedate: "",
       receiveddate: "",
       assetsstatus: "Issue",
-      remark: ""
+      remark: "",
+      assettag:""
     }
 
   assetmap(Serials:String){
@@ -174,9 +174,10 @@ export class DialogElementsExampleDialog implements OnInit {
         this.formdata.devicename=res[0].device_type;
         this.formdata.brandname=res[0].brand_name;
         this.formdata.modelname=res[0].model_name;
+        this.formdata.assettag=res[0].asset_tag;
       });
 
-      console.log(Serials);
+     
   }
   ngOnInit() {
     // Fetch serial numbers from the service
@@ -228,6 +229,7 @@ export class Issueassets implements OnInit {
     receivername:"",
     assetsstatus:"received",
     remark:""
+    
   }
 
 

@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import {  MatDialogContent } from "@angular/material/dialog";
+import { Component, inject, Inject } from "@angular/core";
+import {  MAT_DIALOG_DATA, MatDialogContent } from "@angular/material/dialog";
+import { ApiserviceService } from "../service/apiservice.service";
 
 
 @Component({
@@ -12,6 +13,47 @@ import {  MatDialogContent } from "@angular/material/dialog";
 
 export class forms{
 
+
+    private serv=inject(ApiserviceService);
+    id: any;
+   
+    formdata:any={
+        serialnumber:"",
+        devicename:"",
+        brandname:"",
+        modelname:"",
+        department:"",
+        designation:"",
+        gidno:"",
+        name:"",
+        issuedate:"",
+        assetsstatus:"",
+        assettag:""
+
+
+
+
+    }
+
+
+
+      constructor(@Inject(MAT_DIALOG_DATA) public data: {name: string}) { 
+          this.id=this.data.name;
+          
+          this.serv.getbyid(this.id).subscribe((res:any)=>{
+           this.formdata.serialnumber=res[0].serialnumber;
+           this.formdata.devicename=res[0].devicename;
+           this.formdata.brandname=res[0].brandname;
+           this.formdata.modelname=res[0].modelname;
+           this.formdata.department=res[0].department;
+           this.formdata.designation=res[0].designation;
+           this.formdata.gidno=res[0].gidno;
+           this.formdata.name=res[0].name;
+           this.formdata.issuedate=res[0].issuedate;
+           this.formdata.assetsstatus=res[0].assetsstatus;
+           this.formdata.assettag=res[0].assettag;
+          });
+      }    
  // This function is called when the Print button is clicked
  takepring(printContent: HTMLElement): void {
     const printWindow = window.open('', '', 'height=600,width=800');
